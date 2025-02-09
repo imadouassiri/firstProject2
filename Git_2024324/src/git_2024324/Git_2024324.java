@@ -4,6 +4,8 @@
  */
 package git_2024324;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Dell
@@ -18,7 +20,32 @@ public class Git_2024324 {
         
         
         System.out.println("imad_2024324");
+        Scanner KB = new Scanner(System.in);
+        String name;
+
+        // Loop until we get valid input
+        while (true) {
+            System.out.print("Please enter your name (text only, no numbers): ");
+            name = KB.nextLine();
+
+            // Check if input contains any digits
+            if (!name.matches("[a-zA-Z ]+")) {
+                System.out.println("Error: Name should only contain alphabetic characters and spaces. Please try again.\n");
+            } else {
+                // Modify the name using string methods
+                String modifiedName = name.toUpperCase();
+                // Additional modification: Reverse the name and add a suffix "_MODIFIED"
+                modifiedName = new StringBuilder(modifiedName).reverse().toString() + "_EDITED";
+
+                // Display the modified name
+                System.out.println("Modified Name: " + modifiedName);
+                break;
+            }
+        }
+
+        KB.close();
+    }
     }
     
     
-}
+
